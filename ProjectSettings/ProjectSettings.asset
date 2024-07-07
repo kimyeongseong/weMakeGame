@@ -721,7 +721,12 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 1
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -736,11 +741,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5f0d6242-91e5-4434-a0ca-158497d39d32
+  cloudProjectId: da34bb6f-d532-471c-9061-abab817ba302
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: GameMake2024
-  organizationId: kimyeoungsung1124
+  organizationId: cds-d033b2cd-03f0-40e4-8eee-e8f06454663a
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

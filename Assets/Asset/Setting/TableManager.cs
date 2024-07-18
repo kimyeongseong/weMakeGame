@@ -1,50 +1,43 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using GoogleSheetsToUnity; // Ensure this is the correct namespace
-using UnityEngine.Events;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class TableManager : MonoBehaviour
 {
-    private List<ItemDataReader> itemDataReaders;
+    public List<string[]> data = new List<string[]>();
 
-    void Awake()
+    private LoadGoogleSheet loadGoogleSheet;
+
+    private void Awake()
     {
-        LoadItemDataReaders();
+        // Add LoadGoogleSheet component to the same GameObject
+        loadGoogleSheet = gameObject.AddComponent<LoadGoogleSheet>();
     }
 
-    void Start()
+    public void SetData(string sheetData)
     {
-        foreach (var itemDataReader in itemDataReaders)
+        string[] rows = sheetData.Split('\n');
+        foreach (string row in rows)
         {
-            if (itemDataReader != null)
-            {
-                itemDataReader.DataList.Clear();
-                UpdateStats(itemDataReader);
-            }
-            else
-            {
-                Debug.LogError("ItemDataReader is not assigned!");
-            }
+            data.Add(row.Split('\t'));
         }
     }
 
-    void LoadItemDataReaders()
+    public string GetData(int row, int column)
     {
-        itemDataReaders = new List<ItemDataReader>(Resources.LoadAll<ItemDataReader>(""));
-        if (itemDataReaders.Count == 0)
+        if (row < data.Count && column < data[row].Length)
         {
-            Debug.LogError("No ItemDataReader assets found in Resources!");
+            return data[row][column];
         }
+        return null;
     }
 
-    void UpdateStats(ItemDataReader itemDataReader)
+    public IEnumerator FetchSheetData()
     {
-        SpreadsheetManager.Read(new GSTU_Search(itemDataReader.associatedSheet, itemDataReader.associatedWorksheet), (ss) =>
-        {
-            for (int i = itemDataReader.START_ROW_LENGTH; i <= itemDataReader.END_ROW_LENGTH; ++i)
-            {
-                itemDataReader.UpdateStats(ss.rows[i], i);
-            }
-        });
+        yield return loadGoogleSheet.FetchSheetData();
+
+        // After fetching data, process it
+        SetData(loadGoogleSheet.GetSheetData());
     }
 }

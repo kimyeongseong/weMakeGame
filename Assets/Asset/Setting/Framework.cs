@@ -22,6 +22,45 @@ public class Framework : MonoBehaviour
         }
     }
 
+    private SceneManager sceneManager;
+    public SceneManager SceneManager
+    {
+        get
+        {
+            if (sceneManager == null)
+            {
+                sceneManager = gameObject.AddComponent<SceneManager>();
+            }
+            return sceneManager;
+        }
+    }
+
+    private CameraManager cameraManager;
+    public CameraManager CameraManager
+    {
+        get
+        {
+            if (cameraManager == null)
+            {
+                cameraManager = gameObject.AddComponent<CameraManager>();
+            }
+            return cameraManager;
+        }
+    }
+
+    private TableManager tableManager;
+    public static TableManager TableManager
+    {
+        get
+        {
+            if (Instance.tableManager == null)
+            {
+                Instance.tableManager = Instance.gameObject.AddComponent<TableManager>();
+            }
+            return Instance.tableManager;
+        }
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -29,8 +68,11 @@ public class Framework : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // Initialize TableManager
+            // Initialize components
             AddTableManagerComponent();
+            
+            // Setup Camera and Canvas
+            CameraManager.SetupCameraAndCanvas();
         }
         else
         {
@@ -41,18 +83,5 @@ public class Framework : MonoBehaviour
     private void AddTableManagerComponent()
     {
         gameObject.AddComponent<TableManager>();
-    }
-
-    private static TableManager tableManagerInstance;
-    public static TableManager TableManager
-    {
-        get
-        {
-            if (tableManagerInstance == null)
-            {
-                tableManagerInstance = Instance.GetComponent<TableManager>();
-            }
-            return tableManagerInstance;
-        }
     }
 }

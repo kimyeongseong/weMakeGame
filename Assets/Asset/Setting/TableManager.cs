@@ -6,8 +6,10 @@ using UnityEngine.Networking;
 public class TableManager : MonoBehaviour
 {
     public List<string[]> data = new List<string[]>();
-
     private LoadGoogleSheet loadGoogleSheet;
+    private bool tablesLoaded;
+
+    public bool AreTablesLoaded => tablesLoaded;
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class TableManager : MonoBehaviour
         {
             data.Add(row.Split('\t'));
         }
+        tablesLoaded = true;
     }
 
     public string GetData(int row, int column)

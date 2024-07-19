@@ -4,24 +4,20 @@ using UnityEngine.Networking;
 
 public class LoadGoogleSheet : MonoBehaviour
 {
-    const string googleSheetURL = "https://docs.google.com/spreadsheets/d/1gxz5J8xEh3owhlCK_vSTWdRh-Cp5QKVgxX-HX1PhnbY/export?format=tsv&range=A2:D3";
-
     private string sheetData;
 
     public IEnumerator FetchSheetData()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get(googleSheetURL))
-        {
-            yield return www.SendWebRequest();
+        UnityWebRequest www = UnityWebRequest.Get("https://docs.google.com/spreadsheets/d/1gxz5J8xEh3owhlCK_vSTWdRh-Cp5QKVgxX-HX1PhnbY/export?format=tsv&range=A2:D3");
+        yield return www.SendWebRequest();
 
-            if (www.isDone && string.IsNullOrEmpty(www.error))
-            {
-                sheetData = www.downloadHandler.text;
-            }
-            else
-            {
-                Debug.LogError("Error fetching Google Sheet: " + www.error);
-            }
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            sheetData = www.downloadHandler.text;
         }
     }
 

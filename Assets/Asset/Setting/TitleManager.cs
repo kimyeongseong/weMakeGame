@@ -17,6 +17,6 @@ public class TitleManager : MonoBehaviour
     // 씬 로드 메서드
     public void LoadScene(string sceneName)
     {
-        Framework.Instance.SceneManager.LoadSceneAsync(sceneName);
+        Framework.SceneModule.SceneManager.LoadSceneAsync(sceneName);
     }
 }

@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: himawari_idle
+  m_Name: unit_himawari
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -53,5 +53,5 @@ SpriteAtlas:
   - character_himawari_idle_01
   - character_himawari_idle_03
   m_RenderDataMap: {}
-  m_Tag: himawari_idle
+  m_Tag: unit_himawari
   m_IsVariant: 0

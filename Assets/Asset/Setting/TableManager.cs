@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class TableManager : MonoBehaviour
 {
@@ -13,7 +12,6 @@ public class TableManager : MonoBehaviour
 
     private void Awake()
     {
-        // Add LoadGoogleSheet component to the same GameObject
         loadGoogleSheet = gameObject.AddComponent<LoadGoogleSheet>();
     }
 
@@ -39,8 +37,6 @@ public class TableManager : MonoBehaviour
     public IEnumerator FetchSheetData()
     {
         yield return loadGoogleSheet.FetchSheetData();
-
-        // After fetching data, process it
         SetData(loadGoogleSheet.GetSheetData());
     }
 }

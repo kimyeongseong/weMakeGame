@@ -50,7 +50,7 @@ public class SceneManager : MonoBehaviour
     // 테이블이 로드될 때까지 대기하는 코루틴
     private IEnumerator WaitForTablesToLoad()
     {
-        while (!Framework.TableManager.AreTablesLoaded)
+        while (!Framework.GameModule.TableManager.AreTablesLoaded)
         {
             yield return null;
         }

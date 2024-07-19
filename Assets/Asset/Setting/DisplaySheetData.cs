@@ -13,11 +13,11 @@ public class DisplaySheetData : MonoBehaviour
 
     private IEnumerator LoadAndDisplayData()
     {
-        yield return Framework.TableManager.FetchSheetData();
+        yield return Framework.GameModule.TableManager.FetchSheetData();
 
         // Assuming we want to display the first row, second and third columns
-        string firstColumn = Framework.TableManager.GetData(0, 1);
-        string secondColumn = Framework.TableManager.GetData(0, 2);
+        string firstColumn = Framework.GameModule.TableManager.GetData(0, 1);
+        string secondColumn = Framework.GameModule.TableManager.GetData(0, 2);
 
         displayText.text = firstColumn + "\n" + secondColumn;
     }

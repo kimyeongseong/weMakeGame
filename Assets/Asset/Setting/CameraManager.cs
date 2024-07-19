@@ -48,6 +48,9 @@ public class CameraManager : MonoBehaviour
             return;
         }
 
+        // 카메라가 씬 전환 시 사라지지 않도록 설정
+        DontDestroyOnLoad(mainCamera.gameObject);
+
         mainCamera.orthographic = true;
         
         float targetAspect = 360.0f / 640.0f;

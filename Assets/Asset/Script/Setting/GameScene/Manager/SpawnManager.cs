@@ -1,14 +1,14 @@
 using UnityEngine;
 
 /// <summary>
-/// ÇÊµå¿¡ Á¸ÀçÇÒ ¼ö ÀÖ´Â ¿ÀºêÁ§Æ®ÀÇ Á¾·ù
+/// ë§µì— ì¡´ì¬í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ íƒ€ì…
 /// </summary>
 public enum ObjectType
 {
     Unit
 }
 
-// ¼ÒÈ¯ °ü¸®ÀÚ 
+// ìŠ¤í°ì„ ì „ë°˜ì ìœ¼ë¡œ ê´€ë¦¬
 public class SpawnManager : MonoBehaviour
 {
     public GameObject SpawnObject(ObjectType objectType, Vector3 position, Quaternion rotation, string unitName)

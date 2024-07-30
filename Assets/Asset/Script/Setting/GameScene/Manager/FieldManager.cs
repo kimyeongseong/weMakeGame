@@ -5,14 +5,14 @@ using UnityEngine;
 // Manage game field (Grid)
 
 /// <summary>
-/// °ÔÀÓ ÇÊµåÀÇ ÇÑÄ­ ÇÑÄ­(¼¿)À» ÁöÁ¤.
+/// ê²Œì„ í•„ë“œì˜ í•œì¹¸ í•œì¹¸ ì •ë³´
 /// </summary>
 public class FieldCell
 {
-    Vector3 cellPos;                //¼¿ÀÇ À§Ä¡
-    Vector2 cellSize;               //¼¿ ÇÏ³ªÀÇ Å©±â
-    List<CellObject> objOnCell;     //¼¿ À§¿¡ Á¸ÀçÇÏ´Â ¿ÀºêÁ§Æ®
-    bool isSpawn;                   //ÀÌ ¼¿¿¡ ÀûÀÌ ½ºÆùÇÏ´ÂÁö ¿©ºÎ
+    Vector3 cellPos;                //ì…€ì˜ ìœ„ì¹˜
+    Vector2 cellSize;               //ì…€ì˜ í¬ê¸°
+    List<CellObject> objOnCell;     //ì…€ ìœ„ì— ì¡´ì¬í•˜ëŠ” ì˜¤ë¸Œì íŠ¸
+    bool isSpawn;                   //ì  ìŠ¤í° ì—¬ë¶€
 
 
     public void CreateCell(Vector3 pos, Vector3 size)
@@ -29,21 +29,21 @@ public class FieldCell
 
 
 /// <summary>
-/// °ÔÀÓ ÇÊµå (±×¸®µå) °ü¸®. ¸ÊÀ» °İÀÚ·Î ³ª´©¾î °¢ÀÚÀÇ Æ÷Áö¼ÇÀ» ÁöÁ¤ÇÔ.
+/// ìŠ¤í…Œì´ì§€ í•„ë“œ ê´€ë¦¬ì
 /// </summary>
 public class FieldManager : MonoBehaviour
 {
     /// <summary>
-    /// ¸Ê ÇÊµåÀÇ °İÀÚ Ä­. ¸Ê ÀüÃ¼¸¦ Æ÷ÇÔÇÑ´Ù.
+    /// ìŠ¤í…Œì´ì§€ë¥¼ êµ¬ì„±í•˜ëŠ” ì…€ë“¤
     /// </summary>
     FieldCell[][] fieldCells;
     /// <summary>
-    /// ÀûÀÌ ½ºÆùÇÏ´Â À§Ä¡. Å©±â´Â Ç×»ó fieldCells¿Í °°À¸¸ç, true(1) ½Ã ÀûÀÌ ½ºÆù, false(0) ½Ã ½ºÆùÇÏÁö ¾Ê´Â´Ù.
+    /// ì–´ëŠìœ„ì¹˜ì—ì„œ ìŠ¤í°í•˜ëŠ”ì§€. true(1)ì´ë©´ ìŠ¤í°, false(0)ì´ë©´ ìŠ¤í°í•˜ì§€ ì•ŠìŒ
     /// </summary>
     bool[][] enemySpawnPoint;
 
 
-    int rowSize = 10;    int colSize = 10; //row °¡·Î¿­ ±æÀÌ, col ¼¼·Î¿­ ±æÀÌ ¸¦ ÁöÁ¤. µğÆúÆ® °ª
+    int rowSize = 10;    int colSize = 10; //ìŠ¤í…Œì´ì§€ì˜ í–‰ë ¬ í¬ê¸°.
 
     // Start is called before the first frame update
     void Start()
@@ -62,11 +62,11 @@ public class FieldManager : MonoBehaviour
     {
         rowSize = row;
         colSize = col;
-        CreateField();  //»çÀÌÁî¿¡ ¸Â°Ô ¸Ê °İÀÚ¸¦ ÀçÁöÁ¤
+        CreateField();  
     }
 
     /// <summary>
-    /// ¸Ê ÇÊµå¸¦ »ı¼º
+    /// í•„ë“œ ìƒì„±
     /// </summary>
     void CreateField()
     {
@@ -77,14 +77,14 @@ public class FieldManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÇÁ·¹µå ½ÃÆ®³ª ±âÅ¸ ¼ö´ÜÀ» ÅëÇØ ¹Ì¸® Â¥¿©Áø ½ºÆù ±¸¿ªÀ» ÁöÁ¤ÇÏ°í ±×¿¡ ¸ÂÃç ÇÊµå¸¦ ¼¼ÆÃÇÔ
+    /// í•„ë“œ ì„¤ì •.
     /// </summary>
     void SetField()
     {
-        //¹Ì¸® Â¥¿©Áø ½ºÆù ±¸¿ª ÁöÁ¤¹ŞÀ½
-        enemySpawnPoint[0][0] = true;
+        //ìŠ¤í”„ë ˆë“œ ì‹œíŠ¸ ë“±ì—ì„œ ë°›ì•„ì™€ì„œ ì ìš©. 
+        enemySpawnPoint[0][0] = true; //ì„ì‹œ
 
-        //½ºÆù ±¸¿ª¿¡ µû¶ó ½ºÆù ¼³Á¤ ¿Ï·á
+        //ìŠ¤í°ì—¬ë¶€ ì„¤ì •
         for (int i = 0; i < rowSize; i++)
         {
             for (int j = 0; j < colSize; j++)

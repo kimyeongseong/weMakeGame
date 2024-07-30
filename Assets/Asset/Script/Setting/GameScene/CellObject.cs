@@ -4,8 +4,8 @@ using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 /// <summary>
-/// ¼¿¿¡ Á¸ÀçÇÏ´Â ¿ÀºêÁ§Æ®
-/// ¼¿¿¡ Á¸ÀçÇÏ´Â Àû/Àå¾Ö¹°/¾Æ±º µîÀº ¸ğµÎ ÀÌ CellObject¸¦ »ó¼Ó¹Ş¾Æ¾ß ÇÔ.
+/// í•„ë“œ ì…€ ìœ„ì— ì¡´ì¬í•˜ëŠ” ì˜¤ë¸Œì íŠ¸
+/// ëª¨ë“  ì˜¤ë¸Œì íŠ¸ëŠ” CellObjectë¥¼ ìƒì†ë°›ëŠ”ë‹¤.
 /// </summary>
 public class CellObject : MonoBehaviour 
 {

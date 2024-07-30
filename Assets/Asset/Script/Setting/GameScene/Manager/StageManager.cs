@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Manage game stages
 /// <summary>
-/// °ÔÀÓ ½ºÅ×ÀÌÁö¸¦ °ü¸®ÇÔ
+/// ìŠ¤í…Œì´ì§€ ì „ë°˜ì„ ê´€ë¦¬
 /// </summary>
 public class StageManager : MonoBehaviour
 {
@@ -16,14 +16,20 @@ public class StageManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<StageManager>();
-                if (instance == null)
+                if (!TryFindInstance(out instance))
                 {
                     Debug.LogError("No StageManager instance found in the scene.");
                 }
             }
             return instance;
         }
+    }
+
+
+    private static bool TryFindInstance<T>(out T instance) where T : Object
+    {
+        instance = FindObjectOfType<T>();
+        return instance != null;
     }
 
     private void Awake()
@@ -62,12 +68,12 @@ public class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ´ÙÀ½ ¿şÀÌºê·Î ÁøÇà
+    /// ë‹¤ìŒ ì›¨ì´ë¸Œë¡œ ì§„í–‰.
     /// </summary>
     public void NextWave()  { wave++; }
 
     /// <summary>
-    /// Àû ½ºÆù ½ÃÀÛ
+    /// ìŠ¤í° ì‹œì‘
     /// </summary>
     public void StartSpawn()
     {

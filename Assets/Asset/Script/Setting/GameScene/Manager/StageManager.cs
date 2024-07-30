@@ -14,17 +14,13 @@ public class StageManager : MonoBehaviour
     {
         get
         {
-            if (instance == null)
+            if (!TryFindInstance<StageManager>(out instance))
             {
-                if (!TryFindInstance(out instance))
-                {
-                    Debug.LogError("No StageManager instance found in the scene.");
-                }
+                Debug.LogError("No StageManager instance found in the scene.");
             }
             return instance;
         }
     }
-
 
     private static bool TryFindInstance<T>(out T instance) where T : Object
     {
@@ -45,22 +41,10 @@ public class StageManager : MonoBehaviour
         }
     }
 
-
     float spawnTime = 1f;
     int wave = 0;
-    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetWave(int wv)
     {
@@ -70,7 +54,7 @@ public class StageManager : MonoBehaviour
     /// <summary>
     /// 다음 웨이브로 진행.
     /// </summary>
-    public void NextWave()  { wave++; }
+    public void NextWave() { wave++; }
 
     /// <summary>
     /// 스폰 시작
@@ -82,6 +66,6 @@ public class StageManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        
+
     }
 }

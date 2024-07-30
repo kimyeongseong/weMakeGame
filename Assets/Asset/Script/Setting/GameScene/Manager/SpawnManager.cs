@@ -1,10 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// 필드에 존재할 수 있는 오브젝트의 종류
+/// </summary>
 public enum ObjectType
 {
     Unit
 }
 
+// 소환 관리자 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject SpawnObject(ObjectType objectType, Vector3 position, Quaternion rotation, string unitName)

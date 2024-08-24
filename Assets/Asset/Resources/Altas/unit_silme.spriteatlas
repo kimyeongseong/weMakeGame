@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: unit_himawari
+  m_Name: unit_silme
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -32,26 +32,25 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 21300000, guid: a02824696557b0e42b5507fc390771a2, type: 3}
-    - {fileID: 21300000, guid: 689ad4bed004fb14f8389820d851249b, type: 3}
-    - {fileID: 21300000, guid: 149baf0ac5355ee4bacf9204968a643d, type: 3}
-    - {fileID: 21300000, guid: e610070f5c707c84aa1fbac5a4db8d36, type: 3}
-    - {fileID: 21300000, guid: a02824696557b0e42b5507fc390771a2, type: 3}
-    - {fileID: 21300000, guid: a02824696557b0e42b5507fc390771a2, type: 3}
+    - {fileID: 21300000, guid: 0fd9f04e17beaab48bc0dd3a8951e70c, type: 3}
+    - {fileID: 21300000, guid: 8ddcd49a5b5943e4bb44477aa0404883, type: 3}
+    - {fileID: 21300000, guid: a08be9e9f5efc794cbbc0612d4ea9dec, type: 3}
+    - {fileID: 21300000, guid: 8ddcd49a5b5943e4bb44477aa0404883, type: 3}
+    - {fileID: 21300000, guid: 1cdd62039f8a94b42b1eb3da6cd48b22, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: a02824696557b0e42b5507fc390771a2, type: 3}
-  - {fileID: 21300000, guid: 149baf0ac5355ee4bacf9204968a643d, type: 3}
-  - {fileID: 21300000, guid: 689ad4bed004fb14f8389820d851249b, type: 3}
-  - {fileID: 21300000, guid: e610070f5c707c84aa1fbac5a4db8d36, type: 3}
+  - {fileID: 21300000, guid: 1cdd62039f8a94b42b1eb3da6cd48b22, type: 3}
+  - {fileID: 21300000, guid: a08be9e9f5efc794cbbc0612d4ea9dec, type: 3}
+  - {fileID: 21300000, guid: 8ddcd49a5b5943e4bb44477aa0404883, type: 3}
+  - {fileID: 21300000, guid: 0fd9f04e17beaab48bc0dd3a8951e70c, type: 3}
   m_PackedSpriteNamesToIndex:
-  - character_himawari_idle_00
-  - character_himawari_idle_02
-  - character_himawari_idle_01
-  - character_himawari_idle_03
+  - mob_silme_idle_03
+  - mob_silme_idle_02
+  - mob_silme_idle_01
+  - mob_silme_idle_00
   m_RenderDataMap: {}
-  m_Tag: unit_himawari
+  m_Tag: unit_silme
   m_IsVariant: 0
